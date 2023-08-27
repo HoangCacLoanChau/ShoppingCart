@@ -132,7 +132,7 @@
           <h2>Danh Sách Món Ăn</h2>
           <!-- Button trigger modal -->
           <div class="row">
-            <div class="col-8">
+            <div class="col-4">
               <button
                 id="btnThem"
                 type="button"
@@ -144,18 +144,27 @@
               </button>
             </div>
             <div class="col-4">
-              <div class="form-group row">
-                <label for="selLoai" class="col-sm-2 col-form-label"
-                  >Show</label
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Nhập tên sản phẩm"
+                value=""
+                required
+              />
+              <span id="searchErr"></span>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <button class="btn btn-success" onclick="searchName()">
+                  Search
+                </button>
+                <button
+                  class="btn btn-danger"
+                  onclick="getnRenderProductListFormAPI() "
                 >
-                <div class="col-sm-10">
-                  <select class="custom-select" id="selLoai">
-                    <option selected>Chọn loại</option>
-                    <option value="all">Tất cả</option>
-                    <option value="loai1">Chay</option>
-                    <option value="loai2">Mặn</option>
-                  </select>
-                </div>
+                  Trở lại
+                </button>
               </div>
             </div>
           </div>
@@ -167,11 +176,24 @@
                   <th>ID</th>
                   <th>Tên</th>
                   <th>Loại</th>
-                  <th>Giá</th>
-                  <th>Khuyến Mãi</th>
-                  <th>Giá KM</th>
-                  <th>Tình Trạng</th>
-                  <th></th>
+                  <th class="d-flex align-items-center border-bottom-0">
+                    <label
+                      class="mr-2 border-0 d-flex align-items-center flex-column"
+                      >Giá</label
+                    >
+                    <select
+                      id="sortOptions"
+                      class="border-0"
+                      onchange="sortPrice()"
+                    >
+                      <option value="0">Sắp xếp</option>
+                      <option value="1">Giá tăng dần</option>
+                      <option value="2">Giá giảm dần</option>
+                    </select>
+                  </th>
+                  <th>Hình ảnh</th>
+                  <th>Mô tả</th>
+                  <th>Thao tác</th>
                 </tr>
               </thead>
               <tbody id="tbodyFood"></tbody>
@@ -212,100 +234,117 @@
           </div>
           <div class="modal-body">
             <form class="needs-validation" id="foodForm">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="foodID">Mã Món</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="foodID"
-                    placeholder="Nhập ID"
-                    value=""
-                    required
-                  />
-                  <div id="invalidID" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="tenMon">Tên Món</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="tenMon"
-                    placeholder="Nhập tên món"
-                    required
-                  />
-                  <div id="invalidTen" class="invalid-form"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="loai">Loại Món</label>
-                  <select
-                    class="custom-select d-block w-100"
-                    id="loai"
-                    required
-                  >
-                    <option value="">Chọn loại</option>
-                    <option value="loai1">Chay</option>
-                    <option value="loai2">Mặn</option>
-                  </select>
-                  <div id="invalidLoai" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="giaMon">Giá Món</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="giaMon"
-                    placeholder="Nhập giá"
-                    value=""
-                    required
-                  />
-                  <div id="invalidGia" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="khuyenMai">Khuyến Mãi (%)</label>
-                  <select
-                    class="custom-select d-block w-100"
-                    id="khuyenMai"
-                    required
-                  >
-                    <option value="">Chọn khuyến mãi</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                  </select>
-                  <div id="invalidKM" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="tinhTrang">Tình Trạng</label>
-                  <select
-                    class="custom-select d-block w-100"
-                    id="tinhTrang"
-                    required
-                  >
-                    <option value="">Chọn tình trạng</option>
-                    <option value="0">Hết</option>
-                    <option value="1">Còn</option>
-                  </select>
-                  <div id="invalidTT" class="invalid-feedback"></div>
-                </div>
+              <div class="tenSanPham">
+                <label for="nameProduct">Tên sản phẩm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nameProduct"
+                  placeholder="Nhập tên sản phẩm"
+                  value=""
+                  required
+                />
+                <div id="invalidNameProduct" class="invalid-feedback"></div>
               </div>
-              <div class="mb-3">
-                <div class="form-group">
-                  <label for="hinhMon">Hình Món Ăn</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="hinhMon"
-                    placeholder="Nhập hình ảnh"
-                    value=""
-                    required
-                  />
-                </div>
+              <div class="giaSanPham">
+                <label for="priceProduct">Giá sản phẩm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="priceProduct"
+                  placeholder="Nhập giá"
+                  value=""
+                  required
+                />
+                <div id="invalidPriceProduct" class="invalid-feedback"></div>
               </div>
-
-              <div class="mb-3">
-                <label for="moTa">Mô Tả</label>
-                <textarea class="form-control" id="moTa" rows="3"></textarea>
-                <div id="invalidMoTa" class="invalid-form"></div>
+              <div class="hinhAnhSanPham">
+                <label for="imgProduct">Hình ảnh sản phẩm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="imgProduct"
+                  placeholder="Nhập tên ảnh"
+                  value=""
+                  required
+                />
+                <div id="invalidImgProduct" class="invalid-feedback"></div>
+              </div>
+              <div class="moTaSanPham">
+                <label for="descProduct">Mô tả sản phẩm</label>
+                <textarea
+                  class="form-control"
+                  id="descProduct"
+                  rows="1"
+                  placeholder="Nhập mô tả"
+                ></textarea>
+                <div id="invalidDescProduct" class="invalid-form"></div>
+              </div>
+              <div class="screenSanPham">
+                <label for="screenProduct">Screen</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="screenProduct"
+                  placeholder="Nhập screen"
+                  value=""
+                  required
+                />
+                <div id="invalidScreenProduct" class="invalid-feedback"></div>
+              </div>
+              <div class="backCameraSanPham">
+                <label for="backCameraProduct">Back camera</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="backCameraProduct"
+                  placeholder="Nhập back camera"
+                  value=""
+                  required
+                />
+                <div
+                  id="invalidBackCameraProduct"
+                  class="invalid-feedback"
+                ></div>
+              </div>
+              <div class="frontCameraSanPham">
+                <label for="frontCameraProduct">Front camera</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="frontCameraProduct"
+                  placeholder="Nhập front camera"
+                  value=""
+                  required
+                />
+                <div
+                  id="invalidFrontCameraProduct"
+                  class="invalid-feedback"
+                ></div>
+              </div>
+              <div class="loaiSanPham">
+                <label for="typeProduct">Loại sản phẩm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="typeProduct"
+                  placeholder="Nhập loại sản phẩm"
+                  value=""
+                  required
+                />
+                <div id="invalidTypeProduct" class="invalid-feedback"></div>
+              </div>
+              <div class="maSanPham">
+                <label for="idProduct">Mã sản phẩm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="idProduct"
+                  placeholder="Nhập mã sản phẩm"
+                  value=""
+                  required
+                />
+                <div id="invalidIdProduct" class="invalid-feedback"></div>
               </div>
             </form>
           </div>
@@ -317,10 +356,20 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-warning" id="btnCapNhat">
+            <button
+              type="button"
+              class="btn btn-warning"
+              id="btnCapNhat"
+              onclick="updateProduct()"
+            >
               Cập Nhật
             </button>
-            <button type="button" class="btn btn-warning" id="btnThemMon">
+            <button
+              type="button"
+              class="btn btn-warning"
+              id="btnThemMon"
+              onclick="addProduct()"
+            >
               Thêm
             </button>
           </div>
@@ -337,7 +386,8 @@
     <script src="../assets/lib/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- admin js -->
-    <script src="../ShoppingCart/admin/service/controller.js"></script>
-    <script src="../ShoppingCart/admin/service/main.js"></script>
+    <script src="../service/validate_admin.js"></script>
+    <script src="../service/controller_admin.js"></script>
+    <script src="../service/main_admin.js"></script>
   </body>
 </html>
