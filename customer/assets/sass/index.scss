@@ -3,3 +3,24 @@ body {
     color: black;
   }
   
+main{
+  .col-3{
+    padding-bottom: 20px;
+    .card{
+     max-width: 300px;
+     min-height: 500px;
+    }
+  }
+  #phone-list{ 
+   .card{
+    border-radius: 5px;
+  }
+  .add-to-card{
+    width: 40%;
+    position: relative;
+    bottom: 10px;
+    left: 20px;
+  }
+  }
+  
+}

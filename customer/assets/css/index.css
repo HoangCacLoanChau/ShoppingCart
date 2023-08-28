@@ -1,4 +1,21 @@
 body {
   font-size: 0.875rem;
   color: black;
+}
+
+main .col-3 {
+  padding-bottom: 20px;
+}
+main .col-3 .card {
+  max-width: 300px;
+  min-height: 500px;
+}
+main #phone-list .card {
+  border-radius: 5px;
+}
+main #phone-list .add-to-card {
+  width: 40%;
+  position: relative;
+  bottom: 10px;
+  left: 20px;
 }/*# sourceMappingURL=index.css.map */
