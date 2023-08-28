@@ -13,7 +13,10 @@ export let renderProduct = (product) => {
       <h5 class="card-title">${name} </h5>
       <p class= "card-text" >${desc}</p>
       </div>
+      <div class="cart-button">
       <a href="#" class="add-to-card btn btn-primary">Add to cart</a>
+      <i class="fa fa-cart-arrow-down"></i>
+      </div>
 
       </div>
       </div>
