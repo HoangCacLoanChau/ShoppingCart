@@ -19,7 +19,8 @@ let fetchProduct = () => {
 fetchProduct();
 
 window.addToCart = (proId) => {
-  let products = getLocalStorage("productList");
+  // let products = getLocalStorage("productList");
+  let products = JSON.parse(localStorage.getItem("productList"));
   let carts = JSON.parse(localStorage.getItem("carts")) || [];
   console.log("🚀 ~ products:", products);
   let newProduct = products.find((item) => {

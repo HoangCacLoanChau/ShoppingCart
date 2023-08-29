@@ -1,4 +1,4 @@
-import { product } from "../model/product";
+import { product } from "../model/product.js";
 
 const IPHONE = "iphone";
 const SAMSUNG = "samsung";
