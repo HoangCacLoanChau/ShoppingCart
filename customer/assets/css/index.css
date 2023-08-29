@@ -4,10 +4,10 @@ body {
   line-height: 15px;
 }
 
-main .col-3 {
+main .item {
   padding-bottom: 40px;
 }
-main .col-3 .card {
+main .item .card {
   max-width: 300px;
   min-height: 500px;
 }
