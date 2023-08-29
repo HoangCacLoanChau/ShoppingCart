@@ -34,8 +34,24 @@ main #phone-list .add-to-card {
   border: 3px black;
 }
 main #btnCart {
-  color: #FB6702;
   font-size: 30px;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+main #btnCart #cart-amount {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background-color: #FB6702;
+  color: white;
+  font-size: 7px;
+  border-radius: 50%;
+  line-height: 15px;
+  text-align: center;
 }
 main #btnCart:hover {
   cursor: pointer;

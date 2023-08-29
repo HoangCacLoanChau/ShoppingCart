@@ -1,5 +1,4 @@
 import { product } from "../model/product.js";
-import { carts } from "../service/main.js";
 
 const IPHONE = "iphone";
 const SAMSUNG = "samsung";
@@ -24,7 +23,7 @@ export let renderProduct = (product) => {
       } </p>
       </div>
       <div class="cart-button">
-      <a href="#" class="add-to-card btn btn-primary" onClick="addToCart(${id})" ><span>Add to cart </span><i class="fa fa-cart-arrow-down"></i></a>
+      <a class="add-to-card btn btn-primary" onClick="addToCart(${id})" ><span>Add to cart </span><i class="fa fa-cart-arrow-down"></i></a>
       </div>
 
       </div>

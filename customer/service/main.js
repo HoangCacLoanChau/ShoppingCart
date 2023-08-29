@@ -17,7 +17,7 @@ let fetchProduct = () => {
     });
 };
 fetchProduct();
-export let carts = JSON.parse(localStorage.getItem("carts")) || [];
+let carts = JSON.parse(localStorage.getItem("carts")) || [];
 
 window.addToCart = (proId) => {
   // let products = getLocalStorage("productList");
@@ -34,6 +34,7 @@ window.addToCart = (proId) => {
   console.log(checkCart);
   checkCart == -1 ? carts.push(cartItem) : (carts[checkCart].quantity += 1);
   console.log(carts);
+  totalQuantity();
   showProduct(carts);
   localStorage.setItem("carts", JSON.stringify(carts));
 };
@@ -64,3 +65,14 @@ window.handleQuantity = (id, action) => {
   showProduct(carts);
   localStorage.setItem("carts", JSON.stringify(carts));
 };
+
+let totalQuantity = () => {
+  let cartAmount = document.getElementById("cart-amount");
+  let total = 0;
+  carts.forEach((x) => {
+    console.log(x.quantity);
+    total += x.quantity;
+    cartAmount.innerHTML = total;
+  });
+};
+totalQuantity();
