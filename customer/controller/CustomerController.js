@@ -12,7 +12,7 @@ export let renderProduct = (product) => {
       /*html*/
       `
       <div class="col-lg-3 col-sm-4 col-6 item">
-      <div class="card h-100 w-100">
+      <div class="card h-100 ">
       <img class="card-img-top" src="../assets/img/iphone1.jpg" alt="Card image cap">
       <div class="card-body">
       <h5 class="card-title">${name} </h5>
@@ -48,4 +48,33 @@ export let getLocalStorage = (itemName) => {
   } else {
     return arr;
   }
+};
+// show product to cart
+export let showProduct = (cart) => {
+  console.log("aaaa", cart);
+  let result = document.getElementById("product-cart");
+  let contentHTML = "";
+  cart.forEach((item) => {
+    let { id, name, backCamera, desc, frontCamera, img, price, screen, type, quantity } = item;
+
+    contentHTML +=
+      /* html */
+      `
+      <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="../assets/img/iphone1.jpg" alt="..." class="w-100 h-100">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">${desc}</p>
+          <p class="card-text"><small class="text-muted">${quantity}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+      `;
+  });
+  result.innerHTML = contentHTML;
 };

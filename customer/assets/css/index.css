@@ -7,10 +7,6 @@ body {
 main .item {
   padding-bottom: 40px;
 }
-main .item .card {
-  max-width: 300px;
-  min-height: 500px;
-}
 main #phone-list .card {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -36,4 +32,11 @@ main #phone-list .add-to-card {
   background-color: #FB6702;
   width: 40%;
   border: 3px black;
+}
+main #btnCart {
+  color: #FB6702;
+  font-size: 30px;
+}
+main #btnCart:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */

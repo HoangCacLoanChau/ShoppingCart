@@ -64,11 +64,6 @@
         placeholder="Search"
         aria-label="Search"
       />
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Cart</a>
-        </li>
-      </ul>
     </nav>
 
     <div class="container-fluid">
@@ -108,19 +103,8 @@
 
           <h2>Danh Sách Sản Phẩm</h2>
           <!-- Button trigger modal -->
-          <div class="row">
-            <div class="col-8">
-              <button
-                id="btnThem"
-                type="button"
-                class="btn btn-warning mb-3 text-white"
-                data-toggle="modal"
-                data-target="#exampleModal"
-              >
-                Thêm Món Ăn
-              </button>
-            </div>
-            <div class="col-4">
+          <div class="row align-items-center justify-content-between text-right">
+            <div class="col-6">
               <div class="form-group row">
                 <label for="selLoai" class="col-sm-2 col-form-label">Show</label>
                 <div class="col-sm-10">
@@ -131,6 +115,11 @@
                     <option value="loai2">Mặn</option>
                   </select>
                 </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div id="btnCart" class="mb-3" data-toggle="modal" data-target="#productModal">
+                <i class="fa fa-shopping-cart"></i>
               </div>
             </div>
           </div>
@@ -145,7 +134,7 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="productModal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -153,97 +142,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Thêm Món Ăn</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Your Cart</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form class="needs-validation" id="foodForm">
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="foodID">Mã Món</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="foodID"
-                    placeholder="Nhập ID"
-                    value=""
-                    required
-                  />
-                  <div id="invalidID" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="tenMon">Tên Món</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="tenMon"
-                    placeholder="Nhập tên món"
-                    required
-                  />
-                  <div id="invalidTen" class="invalid-form"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="loai">Loại Món</label>
-                  <select class="custom-select d-block w-100" id="loai" required>
-                    <option value="">Chọn loại</option>
-                    <option value="loai1">Chay</option>
-                    <option value="loai2">Mặn</option>
-                  </select>
-                  <div id="invalidLoai" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="giaMon">Giá Món</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="giaMon"
-                    placeholder="Nhập giá"
-                    value=""
-                    required
-                  />
-                  <div id="invalidGia" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="khuyenMai">Khuyến Mãi (%)</label>
-                  <select class="custom-select d-block w-100" id="khuyenMai" required>
-                    <option value="">Chọn khuyến mãi</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                  </select>
-                  <div id="invalidKM" class="invalid-feedback"></div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="tinhTrang">Tình Trạng</label>
-                  <select class="custom-select d-block w-100" id="tinhTrang" required>
-                    <option value="">Chọn tình trạng</option>
-                    <option value="0">Hết</option>
-                    <option value="1">Còn</option>
-                  </select>
-                  <div id="invalidTT" class="invalid-feedback"></div>
-                </div>
-              </div>
-              <div class="mb-3">
-                <div class="form-group">
-                  <label for="hinhMon">Hình Món Ăn</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="hinhMon"
-                    placeholder="Nhập hình ảnh"
-                    value=""
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <label for="moTa">Mô Tả</label>
-                <textarea class="form-control" id="moTa" rows="3"></textarea>
-                <div id="invalidMoTa" class="invalid-form"></div>
-              </div>
-            </form>
+            <div id="product-cart"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,4 +1,4 @@
-import { renderProduct } from "../controller/CustomerController.js";
+import { renderProduct, showProduct } from "../controller/CustomerController.js";
 
 const BASE_URL = "https://64da100fe947d30a260ab426.mockapi.io/product";
 //get phone list from API
@@ -17,11 +17,11 @@ let fetchProduct = () => {
     });
 };
 fetchProduct();
+let carts = JSON.parse(localStorage.getItem("carts")) || [];
 
 window.addToCart = (proId) => {
   // let products = getLocalStorage("productList");
   let products = JSON.parse(localStorage.getItem("productList"));
-  let carts = JSON.parse(localStorage.getItem("carts")) || [];
   console.log("🚀 ~ products:", products);
   let newProduct = products.find((item) => {
     return item.id == proId;
@@ -34,5 +34,7 @@ window.addToCart = (proId) => {
   console.log(checkCart);
   checkCart == -1 ? carts.push(cartItem) : (carts[checkCart].quantity += 1);
   console.log(carts);
+
   localStorage.setItem("carts", JSON.stringify(carts));
 };
+showProduct(carts);

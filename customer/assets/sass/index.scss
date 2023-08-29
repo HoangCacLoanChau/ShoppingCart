@@ -7,10 +7,7 @@ body {
 main{
   .item{
     padding-bottom: 40px;
-    .card{
-     max-width: 300px;
-     min-height: 500px;
-    }
+   
   }
   #phone-list{ 
    .card{
@@ -48,5 +45,14 @@ main{
     // left: 20px;
   }
   }
+
+    #btnCart{
+      &:hover{
+        cursor: pointer;
+      }
+      color: #FB6702;
+      font-size: 30px;
+    }
   
+ 
 }
