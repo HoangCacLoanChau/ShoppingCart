@@ -1,4 +1,5 @@
 import { product } from "../model/product.js";
+import { carts } from "../service/main.js";
 
 const IPHONE = "iphone";
 const SAMSUNG = "samsung";
@@ -69,7 +70,11 @@ export let showProduct = (cart) => {
         <div class="card-body">
           <h5 class="card-title">${name}</h5>
           <p class="card-text">${desc}</p>
-          <p class="card-text"><small class="text-muted">${quantity}</small></p>
+          <div>
+          <i class="fa fa-minus minus" onClick="handleQuantity(${id},false)"></i>
+          <span id="quantity">${quantity}</span>
+          <i class="fa fa-plus plus" onClick="handleQuantity(${id},true)"></i>
+          </div>
         </div>
       </div>
     </div>
