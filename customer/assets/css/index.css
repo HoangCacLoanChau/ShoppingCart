@@ -1,10 +1,11 @@
 body {
   font-size: 0.875rem;
   color: black;
+  line-height: 15px;
 }
 
 main .col-3 {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 main .col-3 .card {
   max-width: 300px;
@@ -12,22 +13,27 @@ main .col-3 .card {
 }
 main #phone-list .card {
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-main #phone-list .card .cart-button {
+main #phone-list .card a {
   display: flex;
-  gap: 65px;
   align-items: center;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  gap: 5px;
+  min-width: 140px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
-main #phone-list .card .cart-button i {
-  display: inline-block;
-  font-size: 30px;
-  margin-left: 50px;
-  color: black;
+main #phone-list .card a span {
+  width: 80%;
+}
+main #phone-list .card a i {
+  width: 20%;
+  font-size: 20px;
+  color: white;
 }
 main #phone-list .add-to-card {
-  border: black;
   background-color: #FB6702;
   width: 40%;
+  border: 3px black;
 }/*# sourceMappingURL=index.css.map */

@@ -1,11 +1,12 @@
 body {
     font-size: .875rem;
     color: black;
+    line-height: 15px;
   }
   
 main{
   .col-3{
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     .card{
      max-width: 300px;
      min-height: 500px;
@@ -14,26 +15,34 @@ main{
   #phone-list{ 
    .card{
     border-radius: 5px;
-    .cart-button{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        a{
       display: flex;
-      gap: 65px;
       align-items: center;
-    padding-bottom: 20px;
-    padding-left: 20px;
+      gap: 5px;
+      min-width: 140px;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      
+      justify-content: space-between;
+      span{
+        width:80%;
+        
+      }
       i{
-        display: inline-block;
-        font-size: 30px;
-        margin-left: 50px;
-        color: black;
+        width: 20%;
+        font-size: 20px;
+        color: white;
         
        
       }
     }
+    
   }
   .add-to-card{
-  border: black;
         background-color: #FB6702;
     width: 40%;
+    border: 3px black;
     // position: relative;
     // bottom: 10px;
     // left: 20px;
