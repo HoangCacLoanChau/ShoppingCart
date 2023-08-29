@@ -1,6 +1,5 @@
 import { renderProduct, showProduct } from "../controller/CustomerController.js";
-const INCREASE = true;
-const DECREASE = false;
+
 const BASE_URL = "https://64da100fe947d30a260ab426.mockapi.io/product";
 //get phone list from API
 
@@ -47,20 +46,20 @@ window.handleQuantity = (id, action) => {
   let index = carts.findIndex((i) => {
     return i.id == item.id;
   });
-  console.log(item);
   //update itemCart
 
-  if (action) {
-    item.quantity += 1;
+  if (item.quantity == 0) {
+    return;
   } else {
-    if (item.quantity === 1) {
-      carts.splice(index, 1);
-    } else {
-      item.quantity -= 1;
-    }
+    action ? (item.quantity += 1) : (item.quantity -= 1);
+    console.log(item.quantity);
   }
 
   carts[index] = item;
+  //remove quantity ==0
+  carts = carts.filter((x) => {
+    return x.quantity !== 0;
+  });
   //render number
   showProduct(carts);
   localStorage.setItem("carts", JSON.stringify(carts));

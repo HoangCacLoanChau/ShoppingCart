@@ -55,31 +55,36 @@ export let showProduct = (cart) => {
   console.log("aaaa", cart);
   let result = document.getElementById("product-cart");
   let contentHTML = "";
-  cart.forEach((item) => {
-    let { id, name, backCamera, desc, frontCamera, img, price, screen, type, quantity } = item;
+  if (cart) {
+    cart.forEach((item) => {
+      let { id, name, backCamera, desc, frontCamera, img, price, screen, type, quantity } = item;
 
-    contentHTML +=
-      /* html */
-      `
-      <div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="../assets/img/iphone1.jpg" alt="..." class="w-100 h-100">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">${name}</h5>
-          <p class="card-text">${desc}</p>
-          <div>
-          <i class="fa fa-minus minus" onClick="handleQuantity(${id},false)"></i>
-          <span id="quantity">${quantity}</span>
-          <i class="fa fa-plus plus" onClick="handleQuantity(${id},true)"></i>
+      contentHTML +=
+        /* html */
+        `
+        <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="../assets/img/iphone1.jpg" alt="..." class="w-100 h-100">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <p class="card-text">${desc}</p>
+            <div>
+            <i class="fa fa-minus minus" onClick="handleQuantity(${id},false)"></i>
+            <span id="quantity">${quantity}</span>
+            <i class="fa fa-plus plus" onClick="handleQuantity(${id},true)"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-      `;
-  });
+        `;
+    });
+  } else {
+    contentHTML = "Hãy chọn 1 sản phẩm ";
+  }
+
   result.innerHTML = contentHTML;
 };
