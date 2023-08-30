@@ -126,8 +126,7 @@ function searchName() {
   } else {
     renderProductList(searchResult);
     endLoading();
-    document.getElementById("searchErr").innerHTML =
-      "Không có sản phẩm cần tìm";
+    document.getElementById("searchErr").innerHTML = "Không có sản phẩm cần tìm";
   }
 }
 // Sắp xếp theo giá

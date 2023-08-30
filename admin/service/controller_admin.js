@@ -58,7 +58,7 @@ function showDataForm(data) {
   document.getElementById("nameProduct").value = data.name;
   document.getElementById("priceProduct").value = data.price;
   document.getElementById("imgProduct").value = data.img;
-  document.getElementById("descProduct").value = data.des;
+  document.getElementById("descProduct").value = data.desc;
   document.getElementById("screenProduct").value = data.screen;
   document.getElementById("backCameraProduct").value = data.backCamera;
   document.getElementById("frontCameraProduct").value = data.frontCamera;
