@@ -1,0 +1,93 @@
+body {
+  font-size: 0.875rem;
+  color: black;
+  line-height: 15px;
+}
+
+main .item {
+  padding-bottom: 40px;
+}
+main #phone-list .card {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+main #phone-list .card a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 140px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+main #phone-list .card a span {
+  width: 80%;
+}
+main #phone-list .card a i {
+  width: 20%;
+  font-size: 20px;
+  color: white;
+}
+main #phone-list .add-to-card {
+  background-color: #FB6702;
+  width: 40%;
+  border: 3px black;
+}
+main #btnCart {
+  font-size: 30px;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+main #btnCart #cart-amount {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background-color: #FB6702;
+  color: white;
+  font-size: 7px;
+  border-radius: 50%;
+  line-height: 15px;
+  text-align: center;
+}
+main #btnCart:hover {
+  cursor: pointer;
+}
+
+#total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#total .ajust-quantity {
+  display: flex;
+  align-items: center;
+}
+#total .minus {
+  background-color: #D9d9d9;
+  color: white;
+  border: black 0.5px solid;
+}
+#total .plus {
+  background-color: #FB6702;
+  color: white;
+  border: black 0.5px solid;
+}
+#total .trash {
+  font-size: 20px;
+  color: gray;
+}
+
+.card-title {
+  text-transform: uppercase;
+}
+
+#bill {
+  background-color: #FB6702;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}/*# sourceMappingURL=index.css.map */
