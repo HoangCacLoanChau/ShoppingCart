@@ -9,7 +9,7 @@ export let renderProduct = (product) => {
   let contentHTML = "";
 
   product.reverse().forEach((item) => {
-    let { id, name, backCamera, desc, frontCamera, img, price, srceen, type } = item;
+    let { id, name, backCamera, desc, frontCamera, img, price, screen, type } = item;
     contentHTML +=
       /*html*/
       `
