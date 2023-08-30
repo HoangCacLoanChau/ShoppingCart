@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
     <meta name="generator" content="Jekyll v4.1.1" />
-    <title>Dashboard Food</title>
+    <title>Dashboard PRODUCT</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -45,8 +45,8 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-3 shadow h-100">
-      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-4" href="#">PHONE STORE</a>
+    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-3 shadow h-100">
+      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-4 font-weight-bold" href="#">PHONE STORE</a>
       <button
         class="navbar-toggler position-absolute d-md-none collapsed"
         type="button"
@@ -66,21 +66,18 @@
           <div class="sidebar-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="./index.html">
-                  <i class="fa fa-home"></i>
-                  Dashboard <span class="sr-only">(current)</span>
+                <a
+                  class="nav-link text-dark font-weight-bold"
+                  href="../../customer/view/index.html"
+                >
+                  <i class="fas fa-store"></i>
+                  PHONE STORE
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./food.html">
-                  <i class="fa fa-utensils"></i>
-                  Add Food
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./food-list.html">
-                  <i class="fa fa-list"></i>
-                  Food List
+                <a class="nav-link text-dark font-weight-bold" href="../../admin/view/admin.html">
+                  <i class="fas fa-user-cog"></i>
+                  ADMIN PAGE
                 </a>
               </li>
             </ul>
@@ -93,7 +90,6 @@
           <div class="row align-items-center justify-content-between text-right">
             <div class="col-6">
               <div class="form-group row">
-                <label for="selLoai" class="col-sm-2 col-form-label">Show</label>
                 <div class="col-sm-10">
                   <select class="custom-select" id="typeOfPhone" onchange="findByType()">
                     <option selected>Chọn loại</option>

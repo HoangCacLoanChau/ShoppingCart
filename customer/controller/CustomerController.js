@@ -2,20 +2,29 @@ import { product } from "../model/product.js";
 
 const IPHONE = "iphone";
 const SAMSUNG = "samsung";
-const IPHONE_IMG = "../assets/img/iphone1.jpg";
-const SAMSUNG_IMG = "../assets/img/samsung.jpg";
+const IPHONE_IMG = "../../img/iphone1.jpg";
+const SAMSUNG_IMG = "../../img/samsung.jpg";
 export let renderProduct = (product) => {
   let result = document.getElementById("phone-list");
   let contentHTML = "";
 
   product.reverse().forEach((item) => {
-    let { id, name, backCamera, desc, frontCamera, img, price, screen, type } = item;
+    let { id, name, backCamera, desc, frontCamera, img, price, srceen, type } = item;
     contentHTML +=
       /*html*/
       `
       <div class="col-lg-3 col-sm-4 col-6 item">
       <div class="card h-100 ">
-      <img class="card-img-top" src=${type ? IPHONE_IMG : SAMSUNG_IMG} alt="Card image cap">
+      <div class="image-phone">
+        <img class="card-img-top " src=${type ? IPHONE_IMG : SAMSUNG_IMG} alt="Card image cap">
+        <div class="more-info ">
+      <p class= "pt-2"><span class="font-weight-bold desc pl-3 ">Back CAM: </span>${backCamera}</p>
+      <p><span class="font-weight-bold desc pl-3 ">Front CAM: </span>${frontCamera}</p>
+      <p><span class="font-weight-bold desc pl-3 ">Screen: </span>${screen}</p>
+      </div>
+      </div>
+      
+    
       <div class="card-body">
       <h5 class="card-title">${name} </h5>
       <p class= "card-text" ><span class="font-weight-bold desc ">Descripton: </span>${desc}</p>
@@ -66,7 +75,7 @@ export let showProduct = (cart) => {
       <div class="card mb-3" style="max-width: 540px;">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="../assets/img/iphone1.jpg" alt="..." class="w-100 h-100">
+          <img  src=${type ? IPHONE_IMG : SAMSUNG_IMG} alt="..." class="w-100 h-100">
         </div>
         <div class="col-md-8">
           <div class="card-body">

@@ -3,33 +3,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
-    <meta
-      name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-    />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
     <meta name="generator" content="Jekyll v4.1.1" />
-    <title>Dashboard Food</title>
+    <title>Dashboard Product</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
-    <link
-      rel="canonical"
-      href="https://getbootstrap.com/docs/4.5/examples/dashboard/"
-    />
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/" />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/0.5.0/sweet-alert.min.css"> -->
     <!-- Bootstrap core CSS -->
-    <link
-      href="../assets/lib/css/bootstrap/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="../assets/lib/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/foodList.css" />
 
     <style>
@@ -59,10 +47,8 @@
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <nav
-      class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
-    >
-      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">CyberFood</a>
+    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-3 shadow h-100">
+      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-4 font-weight-bold" href="#">ADMIN PAGE</a>
       <button
         class="navbar-toggler position-absolute d-md-none collapsed"
         type="button"
@@ -74,62 +60,34 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <input
-        class="form-control form-control-dark w-100"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
     </nav>
 
     <div class="container-fluid">
       <div class="row">
-        <nav
-          id="sidebarMenu"
-          class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-        >
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
           <div class="sidebar-sticky pt-3">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="./index.html">
-                  <i class="fa fa-home"></i>
-                  Dashboard (admin)<span class="sr-only">(current)</span>
+                <a
+                  class="nav-link text-dark font-weight-bold"
+                  href="../../customer/view/index.html"
+                >
+                  <i class="fas fa-store"></i>
+                  PHONE STORE
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./food.html">
-                  <i class="fa fa-utensils"></i>
-                  Add Food
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./food-list.html">
-                  <i class="fa fa-list"></i>
-                  Food List
+                <a class="nav-link text-dark font-weight-bold" href="../../admin/view/admin.html">
+                  <i class="fas fa-user-cog"></i>
+                  ADMIN PAGE
                 </a>
               </li>
             </ul>
           </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-          <nav class="my-3" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="./index.html">Dashboard</a>
-              </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Food List
-              </li>
-            </ol>
-          </nav>
-
-          <h2>Danh Sách Món Ăn</h2>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mb-2">
+          <h2 class="pt-2">Danh Sách Sản Phẩm</h2>
           <!-- Button trigger modal -->
           <div class="row">
             <div class="col-4">
@@ -140,7 +98,7 @@
                 data-toggle="modal"
                 data-target="#exampleModal"
               >
-                Thêm Món Ăn
+                Thêm Sản Phẩm
               </button>
             </div>
             <div class="col-4">
@@ -156,13 +114,8 @@
             </div>
             <div class="col-4">
               <div class="form-group">
-                <button class="btn btn-success" onclick="searchName()">
-                  Search
-                </button>
-                <button
-                  class="btn btn-danger"
-                  onclick="getnRenderProductListFormAPI() "
-                >
+                <button class="btn btn-success" onclick="searchName()">Search</button>
+                <button class="btn btn-danger" onclick="getnRenderProductListFormAPI() ">
                   Trở lại
                 </button>
               </div>
@@ -177,15 +130,8 @@
                   <th>Tên</th>
                   <th>Loại</th>
                   <th class="d-flex align-items-center border-bottom-0">
-                    <label
-                      class="mr-2 border-0 d-flex align-items-center flex-column"
-                      >Giá</label
-                    >
-                    <select
-                      id="sortOptions"
-                      class="border-0"
-                      onchange="sortPrice()"
-                    >
+                    <label class="mr-2 border-0 d-flex align-items-center flex-column">Giá</label>
+                    <select id="sortOptions" class="border-0" onchange="sortPrice()">
                       <option value="0">Sắp xếp</option>
                       <option value="1">Giá tăng dần</option>
                       <option value="2">Giá giảm dần</option>
@@ -222,13 +168,8 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Thêm Món Ăn</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <h5 class="modal-title" id="exampleModalLabel">Thêm Sản Phẩm</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -302,10 +243,7 @@
                   value=""
                   required
                 />
-                <div
-                  id="invalidBackCameraProduct"
-                  class="invalid-feedback"
-                ></div>
+                <div id="invalidBackCameraProduct" class="invalid-feedback"></div>
               </div>
               <div class="frontCameraSanPham">
                 <label for="frontCameraProduct">Front camera</label>
@@ -317,10 +255,7 @@
                   value=""
                   required
                 />
-                <div
-                  id="invalidFrontCameraProduct"
-                  class="invalid-feedback"
-                ></div>
+                <div id="invalidFrontCameraProduct" class="invalid-feedback"></div>
               </div>
               <div class="loaiSanPham">
                 <label for="typeProduct">Loại sản phẩm</label>
@@ -349,27 +284,11 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-warning"
-              id="btnCapNhat"
-              onclick="updateProduct()"
-            >
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning" id="btnCapNhat" onclick="updateProduct()">
               Cập Nhật
             </button>
-            <button
-              type="button"
-              class="btn btn-warning"
-              id="btnThemMon"
-              onclick="addProduct()"
-            >
+            <button type="button" class="btn btn-warning" id="btnThemMon" onclick="addProduct()">
               Thêm
             </button>
           </div>

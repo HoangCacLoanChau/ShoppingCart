@@ -1,3 +1,5 @@
+const IPHONE_IMG = "../../img/iphone1.jpg";
+const SAMSUNG_IMG = "../../img/samsung.jpg";
 function startLoading() {
   document.getElementById("spinner").style.display = "flex";
 }
@@ -8,15 +10,21 @@ function renderProductList(list) {
   let contentProductTable = "";
   for (let i = list.length - 1; i >= 0; i--) {
     let product = list[i];
-    let urlImg = `../../img/` + product.img + `.jpg`;
+    // let urlImg = `../../img/` + product.img + `.jpg`;
     let contentTr = `<tr>
         <td style="width: 10%; text-align: center;vertical-align: middle;">${product.id}</td>
         <td style="width: 10%; text-align: center;vertical-align: middle;">${product.name}</td>
-        <td style="width: 10%; text-align: center;vertical-align: middle;">${product.type}</td>
+        <td style="width: 10%; text-align: center;vertical-align: middle;">${
+          product.type ? "IPHONE" : "SAMSUNG"
+        }</td>
         <td style="width: 10%;text-align: center;vertical-align: middle;">${product.price}</td>
-        <td style="width: 20%;"><img src="${urlImg}" alt="${product.img}"></td>
+        <td style="width: 20%;"><img src=${product.type ? IPHONE_IMG : SAMSUNG_IMG}  alt="${
+      product.img
+    }"></td>
         <td style="width: 30%;text-align: left;vertical-align: middle;">${product.desc}</td>
-        <td style="width: 10%;text-align: center;vertical-align: middle;"><button class="btn btn-warning mt-2" onclick=editProduct(${product.id}) >Sửa</button>
+        <td style="width: 10%;text-align: center;vertical-align: middle;"><button class="btn btn-warning mt-2" onclick=editProduct(${
+          product.id
+        }) >Sửa</button>
         <button class="btn btn-danger mt-2" onclick=deleteProduct(${product.id})>Xóa</button></td>
         </tr>`;
     contentProductTable = contentProductTable + contentTr;

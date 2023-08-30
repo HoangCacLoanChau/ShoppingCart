@@ -3,6 +3,9 @@ body {
   color: black;
   line-height: 15px;
 }
+body .navbar {
+  background-color: #FB6702;
+}
 
 main .item {
   padding-bottom: 40px;
@@ -10,6 +13,9 @@ main .item {
 main #phone-list .card {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+main #phone-list .card:hover .more-info {
+  height: 100%;
 }
 main #phone-list .card a {
   display: flex;
@@ -90,4 +96,21 @@ main #btnCart:hover {
   color: white;
   padding: 10px;
   text-align: left;
+}
+
+.image-phone {
+  position: relative;
+  overflow: hidden;
+}
+
+.more-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  color: white;
+  font-size: 15px;
+  background-color: rgba(194, 119, 28, 0.5);
+  transition: 0.4s;
 }/*# sourceMappingURL=index.css.map */
